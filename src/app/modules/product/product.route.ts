@@ -1,5 +1,4 @@
 import express from 'express';
-import validateRequest from '../../middlewares/validateRequest';
 import { ProductControllers } from './product.controllers';
 
 const router = express.Router();
