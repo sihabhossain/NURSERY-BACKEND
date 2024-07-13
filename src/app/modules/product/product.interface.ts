@@ -1,5 +1,3 @@
-import { Schema } from 'mongoose';
-
 export type TProduct = {
   title: string;
   price: number;

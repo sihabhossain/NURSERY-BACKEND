@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { ZodError } from 'zod';
 import { TErrorSources } from '../interface/error';
 import config from '../config';
@@ -9,10 +9,10 @@ import handleDuplicateError from '../errors/handleDuplicateError';
 import AppError from '../errors/AppError';
 
 const globalErrorHandler = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   err: any,
   req: Request,
   res: Response,
-  next: NextFunction,
 ) => {
   let statusCode = 500;
   let message = 'Something went wrong';
