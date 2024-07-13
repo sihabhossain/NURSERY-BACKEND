@@ -13,9 +13,19 @@ const createProductIntoDB = async (payload: TProduct) => {
   return result;
 };
 
-// get all products
-const getAllProducts = async () => {
-  const result = await Product.find();
+const getAllProducts = async (searchQuery?: string) => {
+  let filter = {};
+
+  if (searchQuery) {
+    filter = {
+      $or: [
+        { title: { $regex: searchQuery, $options: 'i' } },
+        { description: { $regex: searchQuery, $options: 'i' } },
+      ],
+    };
+  }
+
+  const result = await Product.find(filter);
   return result;
 };
 

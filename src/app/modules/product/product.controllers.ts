@@ -17,9 +17,16 @@ const createProduct = catchAsync(async (req, res) => {
   });
 });
 
-// get all products
+// get all products with optional search
 const getAllProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllProducts();
+  const searchQuery = req.query.searchQuery as string | undefined;
+
+  let result;
+  if (searchQuery) {
+    result = await ProductServices.getAllProducts(searchQuery);
+  } else {
+    result = await ProductServices.getAllProducts();
+  }
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

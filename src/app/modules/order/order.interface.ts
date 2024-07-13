@@ -1,7 +1,6 @@
 type CustomerDetails = {
   name: string;
   phone: string;
-  email: string;
   address: string;
 };
 
@@ -17,7 +16,5 @@ export type TOrder = {
   customerDetails: CustomerDetails;
   products: Product[];
   orderTotal: number;
-  paymentMethod: string;
-  orderStatus: string;
   orderDate: string;
 };

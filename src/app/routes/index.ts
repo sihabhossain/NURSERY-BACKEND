@@ -10,7 +10,7 @@ const moduleRoutes = [
     route: ProductRoutes,
   },
   {
-    path: '/orders',
+    path: '/order',
     route: OrderRoutes,
   },
 ];
